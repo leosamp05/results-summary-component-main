@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+    body{
+      margin: 0;
+      font-family: 'Hanken Grotesk', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+    
+    .card{
+      display: flex;
+      box-shadow: 1rem 2rem 3rem hsl(221, 100%, 96%);
+    }
+
+    .card-left{
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%)) ;
+      border-radius: 7%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      text-align: center;
+      width: 17.5rem;
+    }
+
+    .card-left h1,
+    .card-left h2{
+      color: hsl(0, 0%, 100%);
+    }
+
+    .card-left h1{
+      font-size: 3.7rem;
+    }
+
+    .card-left h3{
+      font-size: 1.2rem;
+      margin-top: -1rem;
+    }
+
+    
+    .card-left h3,
+    .card-left p{
+      color: hsl(0, 0%, 78%);
+    } 
+
+    .circle{
+      padding: 2rem 3rem;
+      background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      border-radius: 100%;
+    }
+
+    .circle h1,
+    .circle p{
+      margin: 0;
+    }
+
+    .circle p{
+      color: hsl(241, 100%, 89%, 0.6);
+    }
+
+    .card-text-left{
+      margin: 0 2.7rem;
+      font-size: 0.9rem;
+    }
+
+    .card-left h2{
+      margin-bottom: 0.8rem;
+    }
+
+
+    .card-right{
+      background: hsl(0, 0%, 100%);
+      width: 17.5rem;
+      padding: 1% 5% 5%;
+    }
+
+
+    .card-right h3{
+      color: hsl(224, 30%, 27%);
+    }
+
+    .obj{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0px;
+      padding: 0 15px;
+      height: 13%;
+    }
+
+    .obj h4{
+      font-size: 0.9rem;
+      margin: 13px 4px;
+    }
+
+
+    .reaction{
+      background: hsl(0, 100%, 67%, 0.1);
+      color: hsl(0, 100%, 67%);
+      border-radius: 10px;
+    }
+
+    .memory{
+      background: hsl(39, 100%, 56%, 0.1);
+      color: hsl(39, 100%, 56%);
+      border-radius: 10px;
+    }
+
+    .verbal{
+      background: hsl(166, 100%, 37%, 0.1);
+      color: hsl(166, 100%, 37%);
+      border-radius: 10px;
+    }
+
+    .visual{
+      background: hsl(234, 85%, 45%, 0.1);
+      color: hsl(234, 85%, 45%);
+      border-radius: 10px;
+    }
+
+    .points{
+      color: hsl(0, 0%, 61%);
+    }
+
+    .points span{
+      color: hsl(224, 30%, 27%);
+    }
+
+    .group{
+      display: flex;
+      align-items: center;
+    }
+
+    .group h4{
+      margin-left: 10px;
+    }
+
+    .group img{
+      width: 1rem;
+    }
+
+    .button button{
+      border-radius: 100px;
+    }
+
+    button{
+      width: 100%;
+      height: 2.7rem;
+      border: none;
+      cursor: pointer;
+      color: hsl(0, 0%, 100%);
+      background-color: hsl(224, 30%, 27%);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-top: 1.3rem;
+    }
+
+    button:hover{
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    }
+
+    .attribution {position: absolute; bottom: 10px; font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    @media (max-width: 828px) {
+      body{
+        justify-content: start;
+      }
+      .card{
+        flex-flow: column;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .card-left{
+        width: 100%;
+        height: 43vh;
+        border-radius: 0 0 7% 7%;
+        justify-content:start;
+      }
+
+      .card-left h3{
+        margin-top: 1rem;
+      }
+
+      .card-text-left{
+        width: 70%;
+      }
+
+      .card-right{
+        width: 100%;
+        padding: 0;
+        height: auto;
+      }
+
+      .card-right img{
+        margin-left: 15px;
+      }
+
+      .obj{
+        margin: 10px auto;
+      }
+
+      .obj h4{
+        margin: 13px 20px;
+      }
+
+      .content{
+        width: 85%;
+        margin: 0 auto;
+      }
+
+      
+      .attribution{
+        display: none;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-left">
+      <h3>Your Result</h3>
+      <div class="circle">
+        <h1>76</h1>
+        <p>of 100</p>
+      </div>
+
+
+      <h2>Great</h2>
+      <p class="card-text-left">You scored higher than 65% of the people who have taken these tests.</p>
+
+    </div>
+    <div class="card-right">
+      
+
+      <div class="content">
+        <h3>Summary</h3>
+        <div class="reaction obj">
+          <div class="group">
+            <img src="/assets/images/icon-reaction.svg" alt="bolt">
+            <h4>Reaction</h4>
+          </div>
+          <h4 class="points"><span>80</span> / 100</h4>
+        </div>
+        
+        <div class="memory obj">
+          <div class="group">
+            <img src="/assets/images/icon-memory.svg" alt="brain">
+            <h4>Memory</h4>
+          </div>
+          
+          <h4 class="points"><span>92</span> / 100</h4>
+        </div>
+  
+        <div class="verbal obj">
+          <div class="group">
+            <img src="/assets/images/icon-verbal.svg" alt="head">
+            <h4>Verbal</h4>
+          </div>
+  
+          <h4 class="points"><span>61</span> / 100</h4>
+        </div>
+  
+        <div class="visual obj">
+          <div class="group">
+            <img src="/assets/images/icon-visual.svg" alt="eye">
+            <h4>Visual</h4>
+          </div>
+          <h4 class="points"><span>72</span> / 100</h4>
+        </div>  
+        <div class="button">
+          <button>Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/leosamp05">leosamp05</a>.
+
+  </div>
+
+</body>
+</html>
